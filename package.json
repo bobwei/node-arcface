@@ -1,6 +1,6 @@
 {
   "name": "@bobwei/node-arcface",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Arcsoft Face Cognition Engine wrapper for nodejs.",
   "scripts": {
     "start": "./node_modules/.bin/nodemon ./node_modules/.bin/jest",
