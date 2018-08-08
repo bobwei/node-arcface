@@ -1,25 +1,34 @@
-# Js App Boilerplate
+# node-arcface
 
-This is a js app boilerplate with batteries included to speed up project initiation.
+### Arcsoft Face Cognition Engine.
 
+[ArcFace](http://www.arcsoft.com.cn/ai/arcface.html) is a **Face Cognition Engine**, which contains **Face Detection**, **Face Recognition** and **Face Tracking**.
 
-## Getting Started
+This module is a **Non-Official** wrapper of ArcFace C++ SDK used for nodejs.
 
+### Usage
 
-### Install
+```js
+// Please provide following variables to continue
+/*
+ARCSOFT_APP_ID=
+ARCSOFT_FD_SDKKEY=
+ARCSOFT_FR_SDKKEY=
+*/
+const arcface = new ArcFace(process.env);
 
+// parse image file to ASVLOFFSCREEN
+const asvl = await arcface.parseImage('/path/to/image.jpg');
+
+// face detection
+const faces = arcface.detect(asvl);
+
+// extract face featrue
+const faceModel = arcface.extractFeature(asvl, faces.rcFace[0], faces.lfaceOrient[0]);
 ```
-yarn
-```
 
-### Development
+More see in [test](src/__tests__/index.spec.js).
 
-```
-yarn dev
-```
+### References
 
-### Test
-
-```
-yarn test
-```
+- This repo is originally forked from [node-arcface](https://github.com/lkspc/node-arcface).
