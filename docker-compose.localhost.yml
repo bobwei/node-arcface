@@ -3,6 +3,7 @@ version: '2'
 services:
   app:
     build: .
+    command: ./node_modules/.bin/nodemon ./node_modules/.bin/jest --maxWorkers=20
     env_file: .env
     volumes:
       - .:/usr/src/app

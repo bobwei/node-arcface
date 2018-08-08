@@ -43,7 +43,6 @@ test('ArcFace', () => {
         waitAll,
       ),
     )
-    .then(R.tap(console.log))
     .then(([r1, r2]) => {
       expect(r1.length).toEqual(1);
       expect(r2.length).toEqual(3);

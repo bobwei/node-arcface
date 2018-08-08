@@ -29,6 +29,31 @@ const faceModel = arcface.extractFeature(asvl, faces.rcFace[0], faces.lfaceOrien
 
 More see in [test](src/__tests__/index.spec.js).
 
+### Advanced Usage
+
+```js
+const arcface = new ArcFace(process.env);
+const urls = [
+  'http://www.gstatic.com/tv/thumb/persons/589228/589228_v9_ba.jpg',
+  'https://i.dailymail.co.uk/i/pix/2017/01/19/11/3C26065000000578-4135958-image-a-5_1484825294085.jpg',
+];
+
+const [[f1], [f2]] = await extractFeatures({ arcface })(urls);
+const score = await compareFeatures({ arcface })(f1, f2);
+expect(score).toBeGreaterThan(0.7);
+
+/* serializedFeature can now be saved to disk. */
+const serializedf1 = serializeFeature(f1);
+expect(serializedf1).toEqual(featureMark);
+
+const deserializeF1 = deserializeFeature(serializedf1);
+const result = await compareFeatures({ arcface })(deserializeF1, f2);
+expect(result).toBeGreaterThan(0.7);
+```
+
+- More see in [test](src/functions/__tests__/example.spec.js).
+- Serialized data [example](src/__tests__/feature-mark.json)
+
 ### References
 
 - This repo is originally forked from [node-arcface](https://github.com/lkspc/node-arcface).
