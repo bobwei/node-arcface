@@ -6,6 +6,12 @@
 
 This module is a **Non-Official** wrapper of ArcFace C++ SDK used for nodejs.
 
+### Getting Started
+
+```
+yarn add @bobwei/node-arcface
+```
+
 ### Usage
 
 ```js
