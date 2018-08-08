@@ -3,7 +3,6 @@ version: '2'
 services:
   app:
     build: .
-    command: yarn dev
     env_file: .env
     volumes:
       - .:/usr/src/app

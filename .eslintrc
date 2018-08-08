@@ -15,6 +15,11 @@
     "arrow-body-style": 0,
     "global-require": 0,
     "no-underscore-dangle": 0,
+    "no-extra-boolean-cast": 0,
+    "prefer-template": 0,
+    "no-buffer-constructor": 0,
+    "no-plusplus": 0,
+    "no-bitwise": 0,
     "no-console": 0
   },
   "settings": {
