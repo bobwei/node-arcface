@@ -2,6 +2,7 @@ import * as R from 'ramda';
 
 import ArcFace from 'src';
 import data from 'src/__tests__/photos.json';
+import expectedSerializedFeature from 'src/__tests__/feature-0.json';
 
 import extractFeatures from '../extractFeatures';
 import serializeFeature from '../serializeFeature';
@@ -31,4 +32,21 @@ test('serializeFeature and deserializeFeature', () => {
         }),
       ),
     );
+});
+
+test('serializeFeature', () => {
+  const arcface = new ArcFace(process.env);
+  return Promise.resolve(data)
+    .then(R.map(R.path(['source', 'url'])))
+    .then(extractFeatures({ arcface }))
+    .then(
+      R.pipe(
+        R.head,
+        R.head,
+        serializeFeature,
+      ),
+    )
+    .then(serializedFeature => {
+      expect(serializedFeature).toEqual(expectedSerializedFeature);
+    });
 });
