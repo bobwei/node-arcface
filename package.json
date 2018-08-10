@@ -1,7 +1,8 @@
 {
   "name": "@bobwei/node-arcface",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "Arcsoft Face Cognition Engine wrapper for nodejs.",
+  "main": "./lib/index.js",
   "scripts": {
     "start": "./node_modules/.bin/nodemon ./node_modules/.bin/jest",
     "build": "babel src --out-dir lib --copy-files",
@@ -15,6 +16,13 @@
   "author": "bob61016@gmail.com",
   "license": "MIT",
   "repository": "https://github.com/bobwei/node-arcface",
+  "keywords": [
+    "face"
+  ],
+  "files": [
+    "README.md",
+    "lib"
+  ],
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-core": "^6.26.3",
