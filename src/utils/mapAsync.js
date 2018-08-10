@@ -2,8 +2,7 @@ import R from 'ramda';
 
 const fn = (mapper, data) => {
   return R.pipe(
-    R.map(mapper),
-    R.map(r => Promise.resolve(r)),
+    R.map(obj => Promise.resolve(mapper(obj))),
     promises => Promise.all(promises),
   )(data);
 };
