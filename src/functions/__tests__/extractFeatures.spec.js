@@ -21,6 +21,22 @@ test('extractFeatures', () => {
         R.map(feature => {
           expect(feature).toHaveProperty('pbFeature');
           expect(feature).toHaveProperty('lFeatureSize', 22020);
+          expect(typeof feature.pbFeature).toEqual('object');
+          return feature;
+        }),
+      ),
+    );
+});
+
+test('extractFeatures with serialize', () => {
+  const arcface = new ArcFace(process.env);
+  return Promise.resolve(data)
+    .then(R.map(R.path(['source', 'url'])))
+    .then(extractFeatures({ arcface, serialize: true }))
+    .then(
+      R.map(
+        R.map(feature => {
+          expect(typeof feature.pbFeature).toEqual('string');
           return feature;
         }),
       ),
